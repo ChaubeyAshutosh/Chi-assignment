@@ -21,7 +21,9 @@ document.getElementById('addEmployeeForm').addEventListener('submit', function(e
   const firstName = document.getElementById('firstName').value;
   const age = document.getElementById('age').value;
   const department = document.getElementById('department').value;
-  if (!addEmployee(id, lastName, firstName, age, department)) {
+  if (age < 18) {
+    alert('Age must be 18 or above!');
+  } else if (!addEmployee(id, lastName, firstName, age, department)) {
     alert('Employee ID already exists!');
   } else {
     // Hide the add employee form and show the employee list
@@ -35,7 +37,7 @@ document.getElementById('addEmployeeForm').addEventListener('submit', function(e
     document.getElementById('firstName').value = '';
     document.getElementById('age').value = '';
     document.getElementById('department').value = 'IT';
-  } 
+  }
 });
 
 function addEmployee(id, lastName, firstName, age, department) {
