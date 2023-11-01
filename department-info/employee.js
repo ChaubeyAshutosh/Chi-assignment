@@ -14,12 +14,8 @@ document.getElementById('addEmployeeForm').addEventListener('submit', function(e
   } else if (!addEmployee(id, lastName, firstName, age, department)) {
     alert('Employee ID already exists!');
   } else {
-    // Hide the add employee form and show the employee list
-    document.getElementById('addEmployeeFormDiv').style.display = 'none';
-    document.getElementById('employeeTableDiv').style.display = 'block';
-    document.getElementById('toggleButton').textContent = 'Add Employee';
     displayEmployees();
-    // Clear the form fields
+    //Clear the form fields
     document.getElementById('id').value = '';
     document.getElementById('lastName').value = '';
     document.getElementById('firstName').value = '';
