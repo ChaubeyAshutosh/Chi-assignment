@@ -1,19 +1,5 @@
 let employees = [];
 
-document.getElementById('toggleButton').addEventListener('click', function() {
-  const formDiv = document.getElementById('addEmployeeFormDiv');
-  const tableDiv = document.getElementById('employeeTableDiv');
-  if (formDiv.style.display === 'none') {
-    formDiv.style.display = 'block';
-    tableDiv.style.display = 'none';
-    this.textContent = 'View Employees';
-  } else {
-    formDiv.style.display = 'none';
-    tableDiv.style.display = 'block';
-    this.textContent = 'Add Employee';
-  }
-});
-
 document.getElementById('addEmployeeForm').addEventListener('submit', function(event) {
   event.preventDefault();
   const id = document.getElementById('id').value;
@@ -21,7 +7,9 @@ document.getElementById('addEmployeeForm').addEventListener('submit', function(e
   const firstName = document.getElementById('firstName').value;
   const age = document.getElementById('age').value;
   const department = document.getElementById('department').value;
-  if (age < 18) {
+  if (id.length !== 6) {
+    alert('ID must be exactly 6 characters!');
+  } else if (age < 18) {
     alert('Age must be 18 or above!');
   } else if (!addEmployee(id, lastName, firstName, age, department)) {
     alert('Employee ID already exists!');
