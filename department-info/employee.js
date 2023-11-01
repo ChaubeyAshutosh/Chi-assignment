@@ -7,8 +7,11 @@ document.getElementById('addEmployeeForm').addEventListener('submit', function(e
   const firstName = document.getElementById('firstName').value;
   const age = document.getElementById('age').value;
   const department = document.getElementById('department').value;
+  const nameRegex = /^[A-Za-z]+$/;
   if (id.length !== 6) {
     alert('ID must be exactly 6 characters!');
+  } else if (!lastName.match(nameRegex) || !firstName.match(nameRegex)) {
+    alert('First name and last name must only contain alphabets!');
   } else if (age < 18) {
     alert('Age must be 18 or above!');
   } else if (!addEmployee(id, lastName, firstName, age, department)) {
